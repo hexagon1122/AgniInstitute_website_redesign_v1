@@ -1,0 +1,42 @@
+# www -> apex (takes effect once both domains are attached to the Netlify site)
+https://www.agniinstitute.org/*  https://agniinstitute.org/:splat  301!
+http://www.agniinstitute.org/*   https://agniinstitute.org/:splat  301!
+
+# Old Drupal node paths
+/node/1    /                                 301
+/node/2    /program-subtle-realm             301
+/node/3    /program-collaborative-research   301
+/node/5    /program-studies                  301
+/node/6    /program-meditation               301
+/node/7    /program-institute-research       301
+/node/8    /program-institute-research       301
+/node/9    /program-subtle-realm             301
+/node/11   /program-meditation               301
+/node/12   /get-involved                     301
+/node/13   /board-of-advisors                301
+/node/14   /board-of-directors               301
+/node/15   /about-agni-yoga                  301
+/node/16   /books-of-agni-yoga               301
+/node/17   /contact                          301
+/node/18   /agni-institute-and-agni-yoga     301
+/node/19   /contact                          301
+
+# Old Drupal aliases
+/meditation                /program-meditation           301
+/subtle-realm              /program-subtle-realm         301
+/subtle-realm/*            /program-subtle-realm         301
+/internal-research         /program-institute-research   301
+/collaborative-research    /program-collaborative-research 301
+/studies                   /program-studies              301
+/board-directors           /board-of-directors           301
+/board-advisors            /board-of-advisors            301
+/contact-us                /contact                      301
+/contact/website_feedback  /contact                      301
+/privacy-policy            /privacy                      301
+/user/login                /                             301
+/dreams                    /lucid-dreaming               301
+/dreaming                  /lucid-dreaming               301
+/dream-research            /lucid-dreaming               301
+
+# Excluded local-only folders
+/fires-of-space/*          /books-of-agni-yoga           301

@@ -1,0 +1,4 @@
+# The generated site is committed, so Netlify only publishes it.
+[build]
+  publish = "_publish"
+  command = ""
