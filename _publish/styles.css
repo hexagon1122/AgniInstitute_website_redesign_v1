@@ -659,3 +659,53 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .recaptcha-wrap { min-height: 78px; max-width: 100%; }
 .recaptcha-wrap:empty { min-height: 0; }
 @media (max-width: 360px) { .recaptcha-wrap > div { transform: scale(0.9); transform-origin: 0 0; } }
+
+/* Card hover: mix 4% #808080 into the current fill. Layout, shadow, and text stay put. */
+.card,
+.bio,
+.contact-meta,
+.donate-box,
+.faq details {
+  transition: background-color 180ms ease;
+}
+.bio { background-color: var(--card); }
+.card:hover,
+.card:focus-within,
+.bio:hover,
+.bio:focus-within,
+.faq details:hover,
+.faq details:focus-within {
+  background-color: #fafafa;
+}
+.contact-meta:hover,
+.contact-meta:focus-within,
+.donate-box:hover,
+.donate-box:focus-within {
+  background-color: #eaecf3;
+}
+.band-dark .bio,
+.af-footer .bio {
+  background-color: var(--ink);
+}
+.band-dark .bio:hover,
+.band-dark .bio:focus-within,
+.af-footer .bio:hover,
+.af-footer .bio:focus-within {
+  background-color: #161d2b;
+}
+.live-footer .bio {
+  background-color: #202451;
+}
+.live-footer .bio:hover,
+.live-footer .bio:focus-within {
+  background-color: #242853;
+}
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .bio,
+  .contact-meta,
+  .donate-box,
+  .faq details {
+    transition: none;
+  }
+}
