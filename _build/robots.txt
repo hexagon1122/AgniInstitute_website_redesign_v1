@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /thank-you
+Disallow: /donate-thank-you
+
+Sitemap: https://agniinstitute.org/sitemap.xml
