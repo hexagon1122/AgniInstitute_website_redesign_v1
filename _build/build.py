@@ -23,13 +23,12 @@ def header(slug):
     return f"""  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="nav-wrap">
-      <a class="brand" href="index.html">
-        <img src="assets/logo.png" alt="Agni Institute logo" width="100" height="46" />
-        <span>Agni Institute</span>
+      <a class="brand" href="index.html" aria-label="Agni Institute">
+        <img src="assets/logo.png" alt="" width="100" height="46" />
       </a>
       <nav class="nav" aria-label="Primary">{links}
-        <a class="nav-donate" href="donate.html"{cur}>Donate</a>
       </nav>
+      <a class="nav-donate" href="donate.html"{cur}>Donate</a>
     </div>
   </header>"""
 

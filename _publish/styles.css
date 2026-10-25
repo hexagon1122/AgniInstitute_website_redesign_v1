@@ -48,18 +48,18 @@ a:hover { text-decoration: underline; }
   padding: 0.85rem clamp(1.25rem, 4vw, 3.5rem);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: flex-start;
+  gap: 1.35rem;
   box-sizing: border-box;
 }
 .brand {
+  margin-right: auto;
   font-weight: 700;
   letter-spacing: 0.01em;
   color: var(--ink);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.7rem;
   font-size: 0.95rem;
 }
 .brand img {
@@ -68,7 +68,6 @@ a:hover { text-decoration: underline; }
   aspect-ratio: 400 / 185;
   display: block;
 }
-.brand span { color: var(--accent-dark); }
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -378,26 +377,19 @@ textarea { min-height: 8rem; resize: vertical; }
   .nav {
     gap: 0.85rem 1rem;
   }
-  .nav a { font-size: 0.78rem; }
+  .nav a, .nav-donate { font-size: 0.78rem; }
 }
 
 @media (max-width: 640px) {
   body { font-size: 16px; }
-  .nav-wrap {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.65rem;
-    padding: 0.7rem 1rem;
-  }
   .brand img { height: 40px; }
-  .brand span { font-size: 0.9rem; }
   .nav {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     gap: 0.55rem 0.85rem;
   }
-  .nav a {
+  .nav a, .nav-donate {
     font-size: 0.72rem;
     letter-spacing: 0.03em;
   }
@@ -455,8 +447,7 @@ textarea { min-height: 8rem; resize: vertical; }
 }
 
 @media (max-width: 400px) {
-  .nav a { font-size: 0.68rem; }
-  .brand span { display: none; }
+  .nav a, .nav-donate { font-size: 0.68rem; }
 }
 
 /* Live-matched footer */
@@ -601,8 +592,19 @@ textarea { min-height: 8rem; resize: vertical; }
 /* ===== SEO/Ads round additions ===== */
 .skip-link { position: absolute; left: -999px; top: 0; background: var(--accent-dark); color: #fff; padding: 0.6rem 1rem; z-index: 200; }
 .skip-link:focus { left: 1rem; top: 0.5rem; }
-.nav .nav-donate { background: #a85206; color: #fff; padding: 0.3rem 0.8rem; border-radius: 2px; }
-.nav .nav-donate:hover, .nav .nav-donate[aria-current="page"] { background: #8f4605; color: #fff; text-decoration: none; }
+.nav-donate {
+  background: #a85206;
+  color: #fff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 2px;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.nav-donate:hover, .nav-donate[aria-current="page"] { background: #8f4605; color: #fff; text-decoration: none; }
 .btn-warm { background: #a85206; color: #fff; }
 .btn-warm:hover { background: #8f4605; text-decoration: none; }
 .btn-outline { border-color: var(--accent-dark); color: var(--accent-dark); background: #fff; }
@@ -659,3 +661,80 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .recaptcha-wrap { min-height: 78px; max-width: 100%; }
 .recaptcha-wrap:empty { min-height: 0; }
 @media (max-width: 360px) { .recaptcha-wrap > div { transform: scale(0.9); transform-origin: 0 0; } }
+
+/* Narrow header: logo and Donate share the top row; menu is a full-width row beneath. */
+@media (max-width: 760px) {
+  .nav-wrap {
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 0.75rem;
+    row-gap: 0.65rem;
+    padding: 0.7rem 1rem;
+  }
+  .brand {
+    order: 1;
+    margin-right: 0;
+    flex: 0 1 auto;
+  }
+  .nav-donate {
+    order: 2;
+    margin-left: auto;
+    flex: 0 0 auto;
+  }
+  .nav {
+    order: 3;
+    flex: 1 0 100%;
+    width: 100%;
+  }
+  .brand img { height: 40px; }
+}
+
+/* Card hover: mix 4% #808080 into the current fill. Layout, shadow, and text stay put. */
+.card,
+.bio,
+.contact-meta,
+.donate-box,
+.faq details {
+  transition: background-color 180ms ease;
+}
+.bio { background-color: var(--card); }
+.card:hover,
+.card:focus-within,
+.bio:hover,
+.bio:focus-within,
+.faq details:hover,
+.faq details:focus-within {
+  background-color: #fafafa;
+}
+.contact-meta:hover,
+.contact-meta:focus-within,
+.donate-box:hover,
+.donate-box:focus-within {
+  background-color: #eaecf3;
+}
+.band-dark .bio,
+.af-footer .bio {
+  background-color: var(--ink);
+}
+.band-dark .bio:hover,
+.band-dark .bio:focus-within,
+.af-footer .bio:hover,
+.af-footer .bio:focus-within {
+  background-color: #161d2b;
+}
+.live-footer .bio {
+  background-color: #202451;
+}
+.live-footer .bio:hover,
+.live-footer .bio:focus-within {
+  background-color: #242853;
+}
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .bio,
+  .contact-meta,
+  .donate-box,
+  .faq details {
+    transition: none;
+  }
+}
